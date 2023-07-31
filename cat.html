@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Escaping Cat Emoji</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 500px;
+      height: 500px;
+      border: 2px solid black;
+      border-radius: 50%;
+      font-size: 200px;
+      animation: escapeAnimation 0.5s infinite alternate;
+    }
+
+    .emoji {
+      line-height: 1;
+      filter: invert(100%);
+    }
+
+    @keyframes escapeAnimation {
+      0% {
+        transform: translateY(50px);
+
+      }
+      100% {
+        transform: translateY(-50px);
+
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="meowSound" src="cat_meow.wav" loop></audio>
+  <div class="container" onclick="toggleSound()">
+    <span class="emoji">🐱</span>
+  </div>
+
+  <script>
+    const meowSound = document.getElementById("meowSound");
+
+    function toggleSound() {
+      if(meowSound.paused)
+        meowSound.play();
+      else meowSound.pause();
+    }
+  </script>
+</body>
+</html>
